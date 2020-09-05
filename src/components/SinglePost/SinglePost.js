@@ -1,42 +1,43 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import './SinglePost'
+import { Link, useHistory } from 'react-router-dom';
 const SinglePost = (props) => {
-   const {id,title } = props.post;
-   const postStyle = {
-       height:"200px",
-       padding:"20px",
-   }
+    const { id, title } = props.post;
+    const history = useHistory();
+    const postStyle = {
+        height: "200px",
+        padding: "20px",
+    }
+    const handlePost = (postId)=>{
+        const url = `/post/${postId}`;
+        history.push(url);
 
+    }
     return (
-        
-        
-     
-        <Grid container 
-  direction="row"
-  justify="center"
-  alignItems="center"  item  md={3}>
-        
-        <Paper> 
-        <div style={postStyle}>
-            <h3>  {id} </h3>
 
-           <p> {title}</p>
-          
-            <Button variant="contained" color="primary">
-  Post Details
-</Button>
+        <Grid container
+            direction="row"
+            justify="center"
+            alignItems="center" item md={3}>
 
-</div>
-</Paper>
-        
+            <Paper>
+                <div style={postStyle}>
+                    <h3>  {id} </h3>
+                     <p> {title}</p>
+                     <Button onClick={()=>handlePost(id)} variant="contained" color="primary">
+                        Primary
+                    </Button>
+
+                </div>
+            </Paper>
+
         </Grid>
-        
-           
-       
+
+
+
     );
 };
 

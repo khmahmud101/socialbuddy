@@ -31,7 +31,7 @@ const PostDetais = () => {
                     <Grid item xs={6}>
 
                         <Paper>
-
+                            <img src="" alt=""/>
                         </Paper>
                     </Grid>
                     <Grid item xs={6}>

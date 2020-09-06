@@ -3,20 +3,20 @@ import React, { useEffect, useState } from 'react';
 import Comments from '../Comments/Comments';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-const PostDetais = () => {
+
+const PostDetails = () => {
     const { postId } = useParams();
     const [post, setPost] = useState({});
+
     useEffect(() => {
         const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPost(data));
     }, [])
+
     return (
         <div>
-
-
-
             <br />
             <Grid container spacing={3}>
 
@@ -30,30 +30,16 @@ const PostDetais = () => {
                 <Grid item xs={6}>
                     <Grid item xs={6}>
 
-                        <Paper>
-                            <img src="" alt=""/>
-                        </Paper>
+                        <h3>Comments</h3>
+                        <Comments postId={postId}></Comments>
                     </Grid>
-                    <Grid item xs={6}>
-
-                        <Paper>
-
-                            <h3>Comments</h3>
-                            <Comments postId={postId}></Comments>
-                        </Paper>
-                    </Grid>
+                
                 </Grid>
             </Grid>
-
-
-
-
-
-
 
 
         </div>
     );
 };
 
-export default PostDetais;
+export default PostDetails;

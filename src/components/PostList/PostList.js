@@ -12,16 +12,13 @@ const PostList = () => {
     return (
         <div className="container">
            <Grid container
-  direction="row"
-  justify="center" 
-  alignItems="center" spacing={3}>
+                direction="row"
+                justify="center" 
+                alignItems="center" spacing={3}>
            {
               post.map(post=> <SinglePost post = {post} /> ) 
-          }  
-      </Grid>
-     
- 
-        
+            }  
+            </Grid>
         </div>
     );
 };

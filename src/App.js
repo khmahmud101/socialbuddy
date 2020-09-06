@@ -1,33 +1,34 @@
-
-//import logo from './logo.svg';
 import './App.css';
-import PostList from './components/PostList/PostList';
 import Header from './components/Header/Header';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import PostDetais from './components/PostDetails/PostDetais';
+import PostDetails from './components/PostDetails/PostDetails';
 import Home from './components/Home/Home';
+import NotFound from './NotFound/NotFound';
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Header></Header>
-      <Switch>
-        
-        <Route path="/post/:postId">
-          <PostDetais/>
-        </Route>
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-        
-      </Switch>
-    </Router>
+        <Switch>
+
+          <Route path="/post/:postId">
+            <PostDetails />
+          </Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route exact path="*">
+            <NotFound></NotFound>
+          </Route>
+
+        </Switch>
+      </Router>
     </div>
   );
 }
